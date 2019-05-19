@@ -1,0 +1,14 @@
+body, html {
+   background: url(../images/bg.jpg);
+}
+.wrapper {
+   background: rgb(121, 120, 120);
+   width: 70%;
+   min-height: 800px;
+   margin: auto;
+}
+header {
+   font-size: 3vw;
+   text-align: center;
+   margin-top: 10px;
+}
