@@ -4,7 +4,7 @@ body, html {
 #wrapper {
    background: rgb(121, 120, 120);
    width: 70%;
-   min-height: 800px;
+   min-height: 750px;
    margin: -1px auto 0 auto;
    padding: 1px 0 0 0;
 }
@@ -33,4 +33,13 @@ header {
 }
 #start-game:hover {
    cursor: pointer;
+}
+#current-choices ul {
+   padding: 0;
+   margin: 15px 0;
+}
+#current-choices ul:hover {
+   background: orange;
+   cursor: pointer;
+   padding: 5px;
 }
