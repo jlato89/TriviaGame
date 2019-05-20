@@ -15,6 +15,8 @@ var questions = [
       answer : 1
    }
 ];
+var id = 0;
+
 console.log('Global Questions: ', questions);
 console.log("-----------------");
 
@@ -31,27 +33,54 @@ function timer() {
 
 
 // MAIN PROCESS
-   // Loop through questions in array
 for (var i = 0; i < questions.length; i++) {
-   var wait = true;
-   var choices = questions[i].choices;
+   if (id === i) {
+      var id = i;
+      var choices = questions[id].choices;
+      var answer = questions[id].answer;
+      console.log('answer: ', answer);
 
-   $("#current-question").text(questions[i].question);
-   $("#current-choices").empty();
-
-   console.log(questions[i].question);
-   console.log(questions[i].choices);
-
-      // wait and loop choices, one choice per line
-   if (wait) {
+      $("#current-question").text(questions[id].question);
+      
       for (var x = 0; x < choices.length; x++) {
-         $("#current-choices").append("<ul>" + choices[x] + "</ul>");
+         $("#current-choices").append
+         ("<ul class='choice' id='"+x+"'>" + choices[x] + "</ul>");
       }
+      // on click run this
+      $('ul.choice').on('click', function(e){
+         e.preventDefault();
+         console.log(this.id);
 
-         // on click, change var wait to false
-      $("#time-remaining").on("click", function() {
-         wait = false;
-       });   
+         if (this.id == answer) {
+            alert("Correct!");
+         }
+         else {
+            alert("Wrong!");
+         }
+      });
    }
-   else if (!wait) {}
 }
+//    // Loop through questions in array
+// for (var i = 0; i < questions.length; i++) {
+//    var wait = true;
+//    var choices = questions[i].choices;
+
+//    $("#current-question").text(questions[i].question);
+//    $("#current-choices").empty();
+
+//    console.log(questions[i].question);
+//    console.log(questions[i].choices);
+
+//       // wait and loop choices, one choice per line
+//    if (wait) {
+//       for (var x = 0; x < choices.length; x++) {
+//          $("#current-choices").append("<ul>" + choices[x] + "</ul>");
+//       }
+
+//          // on click, change var wait to false
+//       $("#time-remaining").on("click", function() {
+//          wait = false;
+//        });   
+//    }
+//    else if (!wait) {}
+// }
