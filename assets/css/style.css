@@ -17,7 +17,7 @@ header {
 #game-box {
    text-align: center;
    margin-top: 75px;
-   /* visibility: hidden; */
+   /* display: none; */
 }
 #start-game {
    background: yellow;
@@ -29,14 +29,14 @@ header {
    text-align: center;
    font-size: 3vw;
    font-weight: bold;
-   visibility: hidden;
+   display: none;
 }
 #start-game:hover {
    cursor: pointer;
 }
 #current-choices ul {
    padding: 0;
-   margin: 15px 0;
+   margin: 15px
 }
 #current-choices ul:hover {
    background: orange;
