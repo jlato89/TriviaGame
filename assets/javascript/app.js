@@ -66,7 +66,6 @@ function getRandomQuestion() {
    var choices = questions[randomGen].choices;
    var answer = questions[randomGen].answer;
    // questions.splice(randomGen);  broken!! --  breaks above variables
-   timer();
 
    $("#current-question").text(currentQuestion.question);
    $("#current-choices").empty();
