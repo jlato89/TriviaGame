@@ -15,7 +15,7 @@ var questions = [
       answer : 1
    }
 ];
-var id = 0;
+var currentQuestion;
 
 console.log('Global Questions: ', questions);
 console.log("-----------------");
@@ -28,38 +28,84 @@ $( "#start-game" ).on( "click", function() {
 });
 
 function timer() {
-   setTimeout(function(){ alert("Hello"); }, 10000);
+   setTimeout(function () { alert("Hello"); }, 1000 * 30);
+
+   if (timer === 0) {
+      alert("Times Up!");
+      getRandomQuestion();
+   }
+   else if (this.id != answer) {
+      alert("Wrong!");
+      getRandomQuestion();
+   }
+   else if (this.id == answer) {
+      alert("Correct!");
+      getRandomQuestion();
+   }
+   // if timer === 0
+   // user loses game, call getRandomQuestion();
+   // lives--
+
+   // if user guesses correct before timer is up
+   // user wins, call getRandomQuestion()
+   // lives++
+
+}
+
+
+
+function getRandomQuestion() {
+   var randomGen = Math.floor(Math.random() * questions.length)
+
+   // get a random question
+   // dislau that question to the DOM
+   // start timer (timer());
+   // splice out the question that was used
+   
+
 }
 
 
 // MAIN PROCESS
 for (var i = 0; i < questions.length; i++) {
-   if (id === i) {
-      var id = i;
-      var choices = questions[id].choices;
-      var answer = questions[id].answer;
-      console.log('answer: ', answer);
+   var question = question[i];
+   var choices = questions[i].choices;
+   var answer = questions[i].answer;
 
-      $("#current-question").text(questions[id].question);
-      
-      for (var x = 0; x < choices.length; x++) {
-         $("#current-choices").append
-         ("<ul class='choice' id='"+x+"'>" + choices[x] + "</ul>");
-      }
-      // on click run this
-      $('ul.choice').on('click', function(e){
-         e.preventDefault();
-         console.log(this.id);
+   $("#current-choices").empty();
+   $("#current-question").text(questions[id].question);
 
-         if (this.id == answer) {
-            alert("Correct!");
-         }
-         else {
-            alert("Wrong!");
-         }
-      });
-   }
+
 }
+
+// for (var i = 0; i < questions.length; i++) {
+//    if (id === i) {
+//       var id = i;
+//       var choices = questions[id].choices;
+//       var answer = questions[id].answer;
+//       console.log('answer: ', answer);
+
+//       $("#current-choices").empty();
+//       $("#current-question").text(questions[id].question);
+      
+//       for (var x = 0; x < choices.length; x++) {
+//          $("#current-choices").append
+//          ("<ul class='choice' id='"+x+"'>" + choices[x] + "</ul>");
+//       }
+//       // on click run this
+//       $('ul.choice').on('click', function(e){
+//          e.preventDefault();
+//          console.log(this.id);
+
+//          if (this.id == answer) {
+//             alert("Correct!");
+//          }
+//          else {
+//             alert("Wrong!");
+//          }
+//       });
+//    }
+// }
 //    // Loop through questions in array
 // for (var i = 0; i < questions.length; i++) {
 //    var wait = true;
