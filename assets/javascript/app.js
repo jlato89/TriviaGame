@@ -16,31 +16,37 @@ var questions = [
    }
 ];
 var currentQuestion;
+var choices;
+var answer;
 
 console.log('Global Questions: ', questions);
 console.log("-----------------");
 
 
 // FUNCTIONS
-      // Start Buttons Hide Function
+      // Start Button Function
 $( "#start-game" ).on( "click", function() {
    $("#start-game").hide();
+   $("#game-box").show();
 });
 
 function timer() {
-   setTimeout(function () { alert("Hello"); }, 1000 * 30);
+   setTimeout(function () { alert(""); }, 1000 * 30);
 
    if (timer === 0) {
       alert("Times Up!");
-      getRandomQuestion();
+      // clearTimeout();
+      // getRandomQuestion();
    }
    else if (this.id != answer) {
       alert("Wrong!");
-      getRandomQuestion();
+      // clearTimeout();
+      // getRandomQuestion();
    }
    else if (this.id == answer) {
       alert("Correct!");
-      getRandomQuestion();
+      // clearTimeout();
+      // getRandomQuestion();
    }
    // if timer === 0
    // user loses game, call getRandomQuestion();
@@ -55,8 +61,25 @@ function timer() {
 
 
 function getRandomQuestion() {
-   var randomGen = Math.floor(Math.random() * questions.length)
+   var randomGen = Math.floor(Math.random() * questions.length);
+   currentQuestion = questions[randomGen];
+   var choices = questions[randomGen].choices;
+   var answer = questions[randomGen].answer;
+   // questions.splice(randomGen);  broken!! --  breaks above variables
+   timer();
 
+   $("#current-question").text(currentQuestion.question);
+   $("#current-choices").empty();
+
+   for (var x = 0; x < choices.length; x++) {
+      $("#current-choices").append
+      ("<ul class='choice' id='"+x+"'>" + choices[x] + "</ul>");
+   }
+
+   console.log(randomGen);
+   console.log(currentQuestion.question);
+   console.log(choices);
+   console.log(answer);
    // get a random question
    // dislau that question to the DOM
    // start timer (timer());
@@ -64,19 +87,22 @@ function getRandomQuestion() {
    
 
 }
-
+getRandomQuestion();
 
 // MAIN PROCESS
-for (var i = 0; i < questions.length; i++) {
-   var question = question[i];
-   var choices = questions[i].choices;
-   var answer = questions[i].answer;
-
-   $("#current-choices").empty();
-   $("#current-question").text(questions[id].question);
 
 
-}
+
+   // var choices = questions[i].choices;
+   // var answer = questions[i].answer;
+
+   // $("#current-choices").empty();
+
+   // for (var x = 0; x < choices.length; x++) {
+   //    $("#current-choices").append
+   //    ("<ul class='choice' id='"+x+"'>" + choices[x] + "</ul>");
+   // }
+
 
 // for (var i = 0; i < questions.length; i++) {
 //    if (id === i) {
