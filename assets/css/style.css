@@ -19,3 +19,12 @@ header p {
    text-align: center;
    margin-top: 75px;
 }
+.answer {
+   padding: 0;
+   margin: 15px
+}
+.answer:hover {
+   background: orange;
+   cursor: pointer;
+   padding: 5px;
+}
