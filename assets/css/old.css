@@ -1,0 +1,45 @@
+body, html {
+   background: url(../images/bg.jpg);
+}
+#wrapper {
+   background: rgb(121, 120, 120);
+   width: 70%;
+   min-height: 750px;
+   margin: -1px auto 0 auto;
+   padding: 1px 0 0 0;
+}
+header {
+   font-size: 6vw;
+   font-weight: bold;
+   text-align: center;
+   margin-top: 10px;
+}
+#game-box {
+   text-align: center;
+   margin-top: 75px;
+   /* display: none; */
+}
+#start-game {
+   background: yellow;
+   width: 25%;
+   padding: 15px;
+   margin: auto;
+   margin-top: 30px;
+   border-radius: 20%;
+   text-align: center;
+   font-size: 3vw;
+   font-weight: bold;
+   display: none;
+}
+#start-game:hover {
+   cursor: pointer;
+}
+#current-choices ul {
+   padding: 0;
+   margin: 15px
+}
+#current-choices ul:hover {
+   background: orange;
+   cursor: pointer;
+   padding: 5px;
+}
