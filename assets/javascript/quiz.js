@@ -21,8 +21,9 @@ $(document).ready(function() {
 
    $("body").on("click", ".answer", function(event) {
       selectedAnswer = $(this).text();
+      correctAnswer = questions[id].answer;
 
-      if (selectedAnswer === correctAnswers[questionCounter]){
+      if (selectedAnswer === correctAnswer) {
          alert("Correct!");
          clearInterval(theClock);
          generateWin();
@@ -41,11 +42,11 @@ $(document).ready(function() {
 function generateQuestions() {
    gameHTML = 
    "<p>Time Remaining: <span class='timer'>30</span></p>"+
-   "<p>" + questions[questionCounter].question + "</p>"+
-   "<p class='answer'>" + questions[questionCounter].choices[0] + "</p>"+
-   "<p class='answer'>" + questions[questionCounter].choices[1] + "</p>"+
-   "<p class='answer'>" + questions[questionCounter].choices[2] + "</p>"+
-   "<p class='answer'>" + questions[questionCounter].choices[3] + "</p>";
+   "<p>" + questions[id].question + "</p>"+
+   "<p class='answer'>" + questions[id].choices[0] + "</p>"+
+   "<p class='answer'>" + questions[id].choices[1] + "</p>"+
+   "<p class='answer'>" + questions[id].choices[2] + "</p>"+
+   "<p class='answer'>" + questions[id].choices[3] + "</p>";
 
    $("#game-box").html(gameHTML);
 } // end of generateQuestions
@@ -65,39 +66,39 @@ function startTimer() {
 } // end of startTimer
 
 function generateWin() {
-   alert("Correct");
+   alert("Generate Win Page");
 
 } // end of generateWin
 
 function generateLoss() {
-   alert("Wrong");
+   alert("Generate Loss Page");
 
 } // end of generateLoss
 
 function timeoutLoss() {
-   alert("Out of Time");
+   alert("Generate Out of Time Page");
 
 } // end of timeoutLoss
 
 // ~~~ Global Variables ~~~
 var counter = 30;
-var questionCounter = 0;
+var id = 0;
 var selectedAnswer;
 var theClock;
 var questions = [
    {
       question : "How would you rate this game?",
       choices : ["The Best", "Its Ok", "Its Garbage", "What Game"],
-      answer : 0
+      answer : "The Best"
    },
    {
       question : "What is PIE equal to in Mathematics?",
       choices : ["31.4", "3.14", "4.16", "4.20"],
-      answer : 1
+      answer : "3.14"
    },
    {
       question : "Is the world flat?",
       choices : ["YES", "NO", "MAYBE", "IDK"],
-      answer : 1
+      answer : "NO"
    }
 ];
