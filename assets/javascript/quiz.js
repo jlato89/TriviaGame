@@ -13,8 +13,6 @@ $(document).ready(function() {
       $("header").hide();
 
       generateQuestions();
-      startTimer();
-
    }); // close #start-game click
 
    // on-click event for main body
@@ -51,6 +49,8 @@ function generateQuestions() {
    "<p class='answer'>" + questions[id].choices[3] + "</p>";
 
    $("#game-box").html(gameHTML);
+   counter = 30;
+   startTimer();
 } // end of generateQuestions
 
 function startTimer() {
@@ -58,6 +58,7 @@ function startTimer() {
    function thirtySeconds() {
        if (counter === 0) {
            clearInterval(theClock);
+           id++;
            timeoutLoss();
        }
        if (counter > 0) {
