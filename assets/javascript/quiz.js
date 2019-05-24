@@ -26,11 +26,13 @@ $(document).ready(function() {
       if (selectedAnswer === correctAnswer) {
          alert("Correct!");
          clearInterval(theClock);
+         id++
          generateWin();
       }
       else {
          alert("Incorrect!");
          clearInterval(theClock);
+         id++
          generateLoss();
       }
 
@@ -67,16 +69,19 @@ function startTimer() {
 
 function generateWin() {
    alert("Generate Win Page");
+   generateQuestions();
 
 } // end of generateWin
 
 function generateLoss() {
    alert("Generate Loss Page");
+   generateQuestions();
 
 } // end of generateLoss
 
 function timeoutLoss() {
    alert("Generate Out of Time Page");
+   generateQuestions();
 
 } // end of timeoutLoss
 
