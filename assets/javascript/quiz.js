@@ -108,7 +108,7 @@ function generateWin() {
    $(".answer, .question").remove();
    gameHTML = 
    "<h3>You got it Correct!</h3>"+
-   "<img src='https://via.placeholder.com/150' alt='correct' height='150' width='150'>";
+   "<img src='assets/images/yes.gif' alt='correct' height='250' width='300'>";
 
    $("p").append(gameHTML);
    setTimeout(generateQuestions, 1000 * 3);
@@ -120,7 +120,7 @@ function generateLoss() {
    "<h3><b>You got it Wrong!</b></h3>"+
    "<p>The correct answer was</p>"+
    "<p>"+correctAnswer+"</p>"+
-   "<img src='https://via.placeholder.com/150' alt='wrong' height='150' width='150'>";
+   "<img src='assets/images/no.gif' alt='wrong' height='250' width='300'>";
    
    $("p").append(gameHTML);
    setTimeout(generateQuestions, 1000 * 3);
@@ -130,7 +130,7 @@ function timeoutLoss() {
    $(".answer, .question").remove();
    gameHTML = 
    "<h3>You ran out of <b>TIME</b>!</h3>"+
-   "<img src='https://via.placeholder.com/150' alt='time-up' height='150' width='150'>";
+   "<img src='assets/images/timesup.gif' alt='time-up' height='250' width='300'>";
    
    $("p").append(gameHTML);
    setTimeout(generateQuestions, 1000 * 3);
