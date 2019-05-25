@@ -1,10 +1,10 @@
 //TODO:
 //+ add 'end of quiz' results
 //+ add 'Win/Loss/Timed-Out' results
+//? fix timer which continues to tick down in background after 'alerts'
 
 $(document).ready(function() {
    // create initial start button for game.
-
    function startPage () {
       startButton = "<button id='start-game'> Start Game </button>";
       $("#game-box").append(startButton);
@@ -12,7 +12,6 @@ $(document).ready(function() {
    startPage();
 
    // on-click event for start button to hide initial page and start showing quiz
-
    $("#game-box").on("click", "#start-game", function(event) {
       $("header p").hide();
 
@@ -20,19 +19,20 @@ $(document).ready(function() {
    }); // close #start-game click
 
    // on-click event for main body
-
    $("body").on("click", ".answer", function(event) {
       selectedAnswer = $(this).text();
       correctAnswer = questions[id].answer;
 
       if (selectedAnswer === correctAnswer) {
          clearInterval(theClock);
-         id++
+         id++;
+         wins++;
          generateWin();
       }
       else {
          clearInterval(theClock);
-         id++
+         id++;
+         losses++;
          generateLoss();
       }
 
@@ -64,7 +64,14 @@ function generateQuestions() {
 
 function generateResults() {
    alert("End of Quiz! Show Results");
-} // end of generateQuestions
+} // end of generateResults
+function resetGame() {
+   id = 0;
+   wins = 0;
+   losses = 0;
+
+   generateQuestions();
+} // end of resetGame
 
 function startTimer() {
    theClock = setInterval(myTimer, 1000);
@@ -72,6 +79,7 @@ function startTimer() {
        if (counter === 0) {
            clearInterval(theClock);
            id++;
+           losses++;
            timeoutLoss();
        }
        if (counter > 0) {
@@ -102,6 +110,8 @@ var counter = 30;
 var id = 0;
 var selectedAnswer;
 var theClock;
+var wins = 0;
+var losses = 0;
 var questions = [
    {
       question : "How would you rate this game?",
