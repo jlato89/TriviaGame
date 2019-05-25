@@ -5,7 +5,7 @@
 //+ style 'Win/Loss/Timed-Out' results
 //+ replace temp questions with real StarGate Trivia
 //x fix timer which continues to tick down in background after 'alerts'
-//- Replace 60 sec timers on win/loss functions
+//x Replace 60 sec timers on win/loss functions
 
 $(document).ready(function() {
    // create initial start button for game.
@@ -111,7 +111,7 @@ function generateWin() {
    "<img src='https://via.placeholder.com/150' alt='correct' height='150' width='150'>";
 
    $("p").append(gameHTML);
-   setTimeout(generateQuestions, 1000 * 60);
+   setTimeout(generateQuestions, 1000 * 3);
 } // end of generateWin
 
 function generateLoss() {
@@ -123,7 +123,7 @@ function generateLoss() {
    "<img src='https://via.placeholder.com/150' alt='wrong' height='150' width='150'>";
    
    $("p").append(gameHTML);
-   setTimeout(generateQuestions, 1000 * 60);
+   setTimeout(generateQuestions, 1000 * 3);
 } // end of generateLoss
 
 function timeoutLoss() {
@@ -133,7 +133,7 @@ function timeoutLoss() {
    "<img src='https://via.placeholder.com/150' alt='time-up' height='150' width='150'>";
    
    $("p").append(gameHTML);
-   setTimeout(generateQuestions, 1000 * 60);
+   setTimeout(generateQuestions, 1000 * 3);
 } // end of timeoutLoss
 
 
