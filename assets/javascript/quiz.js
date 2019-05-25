@@ -1,23 +1,27 @@
 //TODO:
+//x add start img button
 //+ style 'generateQuestions' output
 //+ style 'end of quiz' results
 //+ style 'Win/Loss/Timed-Out' results
 //x fix timer which continues to tick down in background after 'alerts'
+//- Replace 60 sec timers on win/loss functions
 
 $(document).ready(function() {
    // create initial start button for game.
    function startPage () {
-      startButton = "<button id='start-game'> Start Game </button>";
+      startButton = 
+      "<p>Click the DHD below to begin</p>"+
+      "<img src='assets/images/SG-dhd.png' alt='start button' id='start-button' height='150' width='150'>";
       $("#game-box").append(startButton);
    }
    startPage();
 
    // on-click event for start button to hide initial page and start showing quiz
-   $("#game-box").on("click", "#start-game", function(event) {
+   $("#game-box").on("click", "#start-button", function(event) {
       $("header p").hide();
 
       generateQuestions();
-   }); // close #start-game click
+   }); // close #start-button click
 
    // on-click event for main body
    $("body").on("click", ".answer", function(event) {
@@ -49,7 +53,7 @@ function generateQuestions() {
    } 
    else {
       gameHTML = 
-      "<p>Time Remaining: <span class='timer'>30</span></p>"+
+      "<p class='timer-p'>Time Remaining: <span class='timer'>30</span></p>"+
       "<p class='question'>" + questions[id].question + "</p>"+
       "<p class='answer'>" + questions[id].choices[0] + "</p>"+
       "<p class='answer'>" + questions[id].choices[1] + "</p>"+
@@ -113,10 +117,12 @@ function generateLoss() {
    $(".answer, .question").remove();
    gameHTML = 
    "<h3><b>You got it Wrong!</b></h3>"+
+   "<p>The correct answer was</p>"+
+   "<p>"+correctAnswer+"</p>"+
    "<img src='https://via.placeholder.com/150' alt='wrong' height='150' width='150'>";
    
    $("p").append(gameHTML);
-   setTimeout(generateQuestions, 1000 * 3);
+   setTimeout(generateQuestions, 1000 * 60);
 } // end of generateLoss
 
 function timeoutLoss() {
@@ -126,7 +132,7 @@ function timeoutLoss() {
    "<img src='https://via.placeholder.com/150' alt='time-up' height='150' width='150'>";
    
    $("p").append(gameHTML);
-   setTimeout(generateQuestions, 1000 * 3);
+   setTimeout(generateQuestions, 1000 * 60);
 } // end of timeoutLoss
 
 
@@ -134,6 +140,7 @@ function timeoutLoss() {
 var counter = 30;
 var id = 0;
 var selectedAnswer;
+var correctAnswer;
 var theClock;
 var wins = 0;
 var losses = 0;
