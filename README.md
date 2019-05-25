@@ -14,6 +14,3 @@ Vanderbilt Bootcamp - Week 5 assignment
 1. create global variables for JS
 1. build functions for Timer, RandomQuestion, Start-Game Button, ect... ect
 1. build main process that includes all of above functions
-
-#### Current block
-trying to find a way to combine the functions and events in such a way that they read from eachother without creating an infinite loop. (5/21)
