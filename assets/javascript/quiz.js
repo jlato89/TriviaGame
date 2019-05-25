@@ -63,7 +63,16 @@ function generateQuestions() {
 } // end of generateQuestions
 
 function generateResults() {
-   alert("End of Quiz! Show Results");
+   restartButton = "<button id='restart-game'> Restart Game </button>";
+   gameHTML = 
+   "<h1>Here are your results</h1>"+
+   "<h3>WINS: " +wins+ "</h3>"+
+   "<h3>LOSSES: " +losses+ "</h3>";
+
+   $("#game-box").html(gameHTML);   
+   $("#game-box").append(restartButton);
+
+   $("#game-box").on("click", "#restart-game", function(event) {resetGame();}); // restart game
 } // end of generateResults
 function resetGame() {
    id = 0;
@@ -90,18 +99,24 @@ function startTimer() {
 } // end of startTimer
 
 function generateWin() {
-   alert("Generate Win Page");
-   generateQuestions();
+   gameHTML = "<h3>You got it RIGHT!</h3><p>now wait 3 secs for next question</p>";
+   $("#game-box").html(gameHTML);
+   
+   setTimeout(generateQuestions, 1000 * 3);
 } // end of generateWin
 
 function generateLoss() {
-   alert("Generate Loss Page");
-   generateQuestions();
+   gameHTML = "<h3>You got it <b>WRONG!</b></h3><p>now wait 3 secs for next question</p>";
+   $("#game-box").html(gameHTML);
+   
+   setTimeout(generateQuestions, 1000 * 3);
 } // end of generateLoss
 
 function timeoutLoss() {
-   alert("Generate Out of Time Page");
-   generateQuestions();
+   gameHTML = "<h3>You ran out of <b>TIME</b>!</h3><p>now wait 3 secs for next question</p>";
+   $("#game-box").html(gameHTML);
+   
+   setTimeout(generateQuestions, 1000 * 3);
 } // end of timeoutLoss
 
 
