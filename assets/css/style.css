@@ -1,23 +1,32 @@
 body, html {
-   background: url(../images/bg.jpg);
+   background: url(../images/background.jpg);
 }
 #wrapper {
-   background: rgb(121, 120, 120);
-   width: 70%;
-   min-height: 750px;
-   margin: -1px auto 0 auto;
+   background: url(../images/gate.png);
+   background-repeat: no-repeat;
+   background-size: cover;
+   width: 75%;
+   min-height: 720px;
+   margin: 20px auto;
    padding: 1px 0 0 0;
 }
 header {
    text-align: center;
    margin-top: 10px;
 }
+#title {
+   font-size: 6vw;
+   color: tan;
+   font-family: 'ZCOOL KuaiLe', cursive;
+}
 header p {
    margin-top: 0px;
 }
 #game-box {
    text-align: center;
-   margin-top: 75px;
+   font-size: 18px;
+   color: yellow;
+   margin-top: 150px;
 }
 .answer {
    padding: 0;
