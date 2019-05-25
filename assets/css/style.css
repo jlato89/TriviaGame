@@ -22,18 +22,29 @@ header {
 header p {
    margin-top: 0px;
 }
+#start-button:hover {
+   cursor: pointer;
+}
 #game-box {
    text-align: center;
    font-size: 18px;
    color: yellow;
    margin-top: 150px;
 }
+.timer-p {
+   font-size: 1.5vw;
+}
+.question {
+   font-size: 3vw;
+   margin-bottom: 40px;
+}
 .answer {
-   padding: 0;
-   margin: 15px
+   font-size: 2vw;
+   margin: 0 auto;
+   padding: 10px;
+   width: 20%;
 }
 .answer:hover {
    background: orange;
    cursor: pointer;
-   padding: 5px;
 }
