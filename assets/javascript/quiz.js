@@ -3,6 +3,7 @@
 //+ style 'generateQuestions' output
 //+ style 'end of quiz' results
 //+ style 'Win/Loss/Timed-Out' results
+//+ replace temp questions with real StarGate Trivia
 //x fix timer which continues to tick down in background after 'alerts'
 //- Replace 60 sec timers on win/loss functions
 
