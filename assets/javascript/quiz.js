@@ -1,7 +1,8 @@
 //TODO:
-//+ add 'end of quiz' results
-//+ add 'Win/Loss/Timed-Out' results
-//? fix timer which continues to tick down in background after 'alerts'
+//+ style 'generateQuestions' output
+//+ style 'end of quiz' results
+//+ style 'Win/Loss/Timed-Out' results
+//x fix timer which continues to tick down in background after 'alerts'
 
 $(document).ready(function() {
    // create initial start button for game.
@@ -49,7 +50,7 @@ function generateQuestions() {
    else {
       gameHTML = 
       "<p>Time Remaining: <span class='timer'>30</span></p>"+
-      "<p>" + questions[id].question + "</p>"+
+      "<p class='question'>" + questions[id].question + "</p>"+
       "<p class='answer'>" + questions[id].choices[0] + "</p>"+
       "<p class='answer'>" + questions[id].choices[1] + "</p>"+
       "<p class='answer'>" + questions[id].choices[2] + "</p>"+
@@ -99,23 +100,32 @@ function startTimer() {
 } // end of startTimer
 
 function generateWin() {
-   gameHTML = "<h3>You got it RIGHT!</h3><p>now wait 3 secs for next question</p>";
-   $("#game-box").html(gameHTML);
-   
-   setTimeout(generateQuestions, 1000 * 3);
+   $(".answer, .question").remove();
+   gameHTML = 
+   "<h3>You got it Correct!</h3>"+
+   "<img src='https://via.placeholder.com/150' alt='correct' height='150' width='150'>";
+
+   $("p").append(gameHTML);
+   setTimeout(generateQuestions, 1000 * 60);
 } // end of generateWin
 
 function generateLoss() {
-   gameHTML = "<h3>You got it <b>WRONG!</b></h3><p>now wait 3 secs for next question</p>";
-   $("#game-box").html(gameHTML);
+   $(".answer, .question").remove();
+   gameHTML = 
+   "<h3><b>You got it Wrong!</b></h3>"+
+   "<img src='https://via.placeholder.com/150' alt='wrong' height='150' width='150'>";
    
+   $("p").append(gameHTML);
    setTimeout(generateQuestions, 1000 * 3);
 } // end of generateLoss
 
 function timeoutLoss() {
-   gameHTML = "<h3>You ran out of <b>TIME</b>!</h3><p>now wait 3 secs for next question</p>";
-   $("#game-box").html(gameHTML);
+   $(".answer, .question").remove();
+   gameHTML = 
+   "<h3>You ran out of <b>TIME</b>!</h3>"+
+   "<img src='https://via.placeholder.com/150' alt='time-up' height='150' width='150'>";
    
+   $("p").append(gameHTML);
    setTimeout(generateQuestions, 1000 * 3);
 } // end of timeoutLoss
 
