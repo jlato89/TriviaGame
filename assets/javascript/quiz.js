@@ -1,3 +1,7 @@
+//TODO:
+//+ add 'end of quiz' results
+//+ add 'Win/Loss/Timed-Out' results
+
 $(document).ready(function() {
    // create initial start button for game.
 
@@ -10,7 +14,7 @@ $(document).ready(function() {
    // on-click event for start button to hide initial page and start showing quiz
 
    $("#game-box").on("click", "#start-game", function(event) {
-      $("header").hide();
+      $("header p").hide();
 
       generateQuestions();
    }); // close #start-game click
@@ -22,13 +26,11 @@ $(document).ready(function() {
       correctAnswer = questions[id].answer;
 
       if (selectedAnswer === correctAnswer) {
-         alert("Correct!");
          clearInterval(theClock);
          id++
          generateWin();
       }
       else {
-         alert("Incorrect!");
          clearInterval(theClock);
          id++
          generateLoss();
@@ -38,24 +40,35 @@ $(document).ready(function() {
 
 }); // end of main process
 
+
 // ~~~ FUNCTIONS ~~~
 function generateQuestions() {
-   gameHTML = 
-   "<p>Time Remaining: <span class='timer'>30</span></p>"+
-   "<p>" + questions[id].question + "</p>"+
-   "<p class='answer'>" + questions[id].choices[0] + "</p>"+
-   "<p class='answer'>" + questions[id].choices[1] + "</p>"+
-   "<p class='answer'>" + questions[id].choices[2] + "</p>"+
-   "<p class='answer'>" + questions[id].choices[3] + "</p>";
+   if (id >= questions.length) {
+      generateResults();
+   } 
+   else {
+      gameHTML = 
+      "<p>Time Remaining: <span class='timer'>30</span></p>"+
+      "<p>" + questions[id].question + "</p>"+
+      "<p class='answer'>" + questions[id].choices[0] + "</p>"+
+      "<p class='answer'>" + questions[id].choices[1] + "</p>"+
+      "<p class='answer'>" + questions[id].choices[2] + "</p>"+
+      "<p class='answer'>" + questions[id].choices[3] + "</p>";
 
-   $("#game-box").html(gameHTML);
-   counter = 30;
-   startTimer();
+      $("#game-box").html(gameHTML);
+      
+      counter = 30;
+      startTimer();
+   }
+} // end of generateQuestions
+
+function generateResults() {
+   alert("End of Quiz! Show Results");
 } // end of generateQuestions
 
 function startTimer() {
-   theClock = setInterval(thirtySeconds, 1000);
-   function thirtySeconds() {
+   theClock = setInterval(myTimer, 1000);
+   function myTimer() {
        if (counter === 0) {
            clearInterval(theClock);
            id++;
@@ -71,20 +84,18 @@ function startTimer() {
 function generateWin() {
    alert("Generate Win Page");
    generateQuestions();
-
 } // end of generateWin
 
 function generateLoss() {
    alert("Generate Loss Page");
    generateQuestions();
-
 } // end of generateLoss
 
 function timeoutLoss() {
    alert("Generate Out of Time Page");
    generateQuestions();
-
 } // end of timeoutLoss
+
 
 // ~~~ Global Variables ~~~
 var counter = 30;
