@@ -11,8 +11,8 @@ $(document).ready(function() {
    // create initial start button for game.
    function startPage () {
       startButton = 
-      "<p>Click the DHD below to begin</p>"+
-      "<img src='assets/images/SG-dhd.png' alt='start button' id='start-button' height='150' width='150'>";
+      "<p id='button-text'>Click the DHD below to begin</p>"+
+      "<img src='assets/images/SG-dhd.png' alt='start button' id='start-button' height='30%' width='30%'>";
       $("#game-box").append(startButton);
    }
    startPage();
@@ -108,7 +108,7 @@ function generateWin() {
    $(".answer, .question").remove();
    gameHTML = 
    "<h3>You got it Correct!</h3>"+
-   "<img src='assets/images/yes.gif' alt='correct' height='250' width='300'>";
+   "<img src='assets/images/yes.gif' alt='correct' height='30%' width='30%'>";
 
    $("p").append(gameHTML);
    setTimeout(generateQuestions, 1000 * 3);
@@ -120,7 +120,7 @@ function generateLoss() {
    "<h3><b>You got it Wrong!</b></h3>"+
    "<p>The correct answer was</p>"+
    "<p>"+correctAnswer+"</p>"+
-   "<img src='assets/images/no.gif' alt='wrong' height='250' width='300'>";
+   "<img src='assets/images/no.gif' alt='wrong' height='30%' width='30%'>";
    
    $("p").append(gameHTML);
    setTimeout(generateQuestions, 1000 * 3);
@@ -130,7 +130,7 @@ function timeoutLoss() {
    $(".answer, .question").remove();
    gameHTML = 
    "<h3>You ran out of <b>TIME</b>!</h3>"+
-   "<img src='assets/images/timesup.gif' alt='time-up' height='250' width='300'>";
+   "<img src='assets/images/timesup.gif' alt='time-up' height='30%' width='30%'>";
    
    $("p").append(gameHTML);
    setTimeout(generateQuestions, 1000 * 3);
