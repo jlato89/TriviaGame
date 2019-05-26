@@ -111,7 +111,7 @@ function generateWin() {
    "<img src='assets/images/yes.gif' alt='correct' height='30%' width='30%'>";
 
    $("p").append(gameHTML);
-   setTimeout(generateQuestions, 1000 * 3);
+   setTimeout(generateQuestions, 1000 * 5);
 } // end of generateWin
 
 function generateLoss() {
@@ -123,7 +123,7 @@ function generateLoss() {
    "<img src='assets/images/no.gif' alt='wrong' height='30%' width='30%'>";
    
    $("p").append(gameHTML);
-   setTimeout(generateQuestions, 1000 * 3);
+   setTimeout(generateQuestions, 1000 * 5);
 } // end of generateLoss
 
 function timeoutLoss() {
@@ -133,7 +133,7 @@ function timeoutLoss() {
    "<img src='assets/images/timesup.gif' alt='time-up' height='30%' width='30%'>";
    
    $("p").append(gameHTML);
-   setTimeout(generateQuestions, 1000 * 3);
+   setTimeout(generateQuestions, 1000 * 5);
 } // end of timeoutLoss
 
 
