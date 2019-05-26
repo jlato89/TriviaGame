@@ -1,12 +1,3 @@
-//TODO:
-//x add start img button
-//+ style 'generateQuestions' output
-//+ style 'end of quiz' results
-//+ style 'Win/Loss/Timed-Out' results
-//+ replace temp questions with real StarGate Trivia
-//x fix timer which continues to tick down in background after 'alerts'
-//x Replace 60 sec timers on win/loss functions
-
 $(document).ready(function() {
    // create initial start button for game.
    function startPage () {
@@ -147,18 +138,28 @@ var wins = 0;
 var losses = 0;
 var questions = [
    {
-      question : "How would you rate this game?",
-      choices : ["The Best", "Its Ok", "Its Garbage", "What Game"],
-      answer : "The Best"
+      question : "How many seasons did Stargate Atlantis have",
+      choices : ["3", "6", "9", "5"],
+      answer : "5"
    },
    {
-      question : "What is PIE equal to in Mathematics?",
-      choices : ["31.4", "3.14", "4.16", "4.20"],
-      answer : "3.14"
+      question : "Who built the Stargates?",
+      choices : ["The Wraith", "The Ancients", "The Asgard", "The Goa'uld"],
+      answer : "The Ancients"
    },
    {
-      question : "Is the world flat?",
-      choices : ["YES", "NO", "MAYBE", "IDK"],
-      answer : "NO"
+      question : "Which character played Jack O'Neill?",
+      choices : ["James Spader", "Richard Dean Anderson", "Kurt Russell", "Joe Flanigan"],
+      answer : "Richard Dean Anderson"
+   },
+   {
+      question : "Who is the Jaffa member of the 'Stargate SG-1' team?",
+      choices : ["Ba'al", "Teal'c", "Bra'tac", "Selmak"],
+      answer : "Teal'c"
+   },
+   {
+      question : "Which part of the U.S. military is Stargate Command a part of?",
+      choices : ["Navy", "Air Force", "Army", "Marines"],
+      answer : "Air Force"
    }
 ];
